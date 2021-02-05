@@ -550,6 +550,7 @@ class Command extends BaseCommand
                         $io->write(' |' . str_pad($package['latestReleaseDate'], $latestReleaseDateLength, ' ').'|', false);
                     }
 
+//                    var_dump($latestPackages);
 
 //                    if (isset($latestPackages[$package['name']])) {
 //                        $latestPackageReleaseDate = $latestPackages[$package['name']]->getReleaseDate()->format('d M Y');
