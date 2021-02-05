@@ -12,7 +12,7 @@ class CommandProvider implements CommandProviderCapability
 {
     public function getCommands()
     {
-        return array(new Command(), new ShowCommand());
+        return array(new Command());
     }
 }
 
