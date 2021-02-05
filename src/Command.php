@@ -435,7 +435,7 @@ class Command extends BaseCommand
 //                        exit;
                         
                         
-                        /// SOMETHING DIFF
+                        /// SOMETHING DIFF AND MORE EVENT
                         
                         /** @var $package PackageInterface */
                         $packageViewData['releaseDate'] = $package->getReleaseDate()?->format('d-M-Y') ?? 'n/a';
