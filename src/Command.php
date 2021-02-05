@@ -10,6 +10,7 @@ use Composer\Package\CompletePackage;
 use Composer\Package\CompletePackageInterface;
 use Composer\Package\Link;
 use Composer\Package\PackageInterface;
+use Composer\Package\Version\VersionParser;
 use Composer\Package\Version\VersionSelector;
 use Composer\Plugin\CommandEvent;
 use Composer\Plugin\PluginEvents;
@@ -36,6 +37,13 @@ use Symfony\Component\Console\Terminal;
 
 class Command extends BaseCommand
 {
+    /** @var VersionParser */
+    protected $versionParser;
+    protected $colors;
+    
+    /** @var RepositorySet */
+    private $repositorySet;
+    
     protected function configure()
     {
         $this->setName('zzz-command')
@@ -347,7 +355,8 @@ class Command extends BaseCommand
         }
     
         $showAllTypes = $input->getOption('all');
-        $showLatest = $input->getOption('latest');
+//        $showLatest = $input->getOption('latest');
+        $showLatest = true;
         $showMinorOnly = $input->getOption('minor-only');
         $ignoredPackages = array_map('strtolower', $input->getOption('ignore'));
         $indent = $showAllTypes ? '  ' : '';

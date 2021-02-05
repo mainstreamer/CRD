@@ -11,25 +11,25 @@
  */
 
 namespace Rteeom;
-
 use Composer\Composer;
 use Composer\DependencyResolver\DefaultPolicy;
 use Composer\Json\JsonFile;
+use Composer\Package\AliasPackage;
 use Composer\Package\BasePackage;
+use Composer\Package\CompletePackage;
 use Composer\Package\CompletePackageInterface;
 use Composer\Package\Link;
-use Composer\Package\AliasPackage;
 use Composer\Package\PackageInterface;
 use Composer\Package\Version\VersionParser;
 use Composer\Package\Version\VersionSelector;
 use Composer\Plugin\CommandEvent;
 use Composer\Plugin\PluginEvents;
-use Composer\Repository\InstalledArrayRepository;
 use Composer\Repository\ComposerRepository;
 use Composer\Repository\CompositeRepository;
+use Composer\Repository\InstalledArrayRepository;
+use Composer\Repository\InstalledRepository;
 use Composer\Repository\PlatformRepository;
 use Composer\Repository\RepositoryFactory;
-use Composer\Repository\InstalledRepository;
 use Composer\Repository\RepositoryInterface;
 use Composer\Repository\RepositorySet;
 use Composer\Repository\RootPackageRepository;
@@ -42,8 +42,8 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Composer\Command\BaseCommand;
 use Symfony\Component\Console\Terminal;
-
 /**
  * @author Robert Schönthal <seroscho@googlemail.com>
  * @author Jordi Boggiano <j.boggiano@seld.be>
@@ -62,7 +62,7 @@ class ShowCommand extends BaseCommand
     protected function configure()
     {
         $this
-            ->setName('show')
+            ->setName('show1')
             ->setAliases(array('info'))
             ->setDescription('Shows information about packages.')
             ->setDefinition(array(
