@@ -1,0 +1,26 @@
+{
+    "name": "rteeom/composer-release-dates",
+    "description": "plug-in for composer to display release dates for package versions",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "rteeom",
+            "email": "mainstreamer@outlook.com"
+        }
+    ],
+    "require": {
+        "composer-plugin-api": "^2.0"
+    },
+    "require-dev": {
+        "composer/composer": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rteeom\\": "src"
+        }
+    },
+    "extra": {
+        "class": "Rteeom\\ReleaseDatePlugin"
+    }
+}
