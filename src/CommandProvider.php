@@ -12,19 +12,7 @@ class CommandProvider implements CommandProviderCapability
 {
     public function getCommands()
     {
-        return array(new Command);
+        return array(new Command());
     }
 }
 
-class Command extends BaseCommand
-{
-    protected function configure()
-    {
-        $this->setName('zzz-command');
-    }
-    
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $output->writeln('Executing');
-    }
-}
