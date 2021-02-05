@@ -407,34 +407,35 @@ class Command extends BaseCommand
     
                         //                            array_keys(
     
+////                        var_dump(
+////                            array_keys($packages['installed'])
+////                        );exit;
+//
+////                            )
+//                        
 //                        var_dump(
-//                            array_keys($packages['installed'])
-//                        );exit;
-
-//                            )
-                        
-                        var_dump(
-//                            array_keys(
-                        
-//                                $packages['installed']['rteeom/composer-release-dates']->getVersion()
-                                $packages['installed']['rteeom/isoflags']->getReleaseDate()
-
-//                            )
-                        );
-    
-                        var_dump(count($latestPackages));exit;
-                        exit;
+////                            array_keys(
+//                        
+////                                $packages['installed']['rteeom/composer-release-dates']->getVersion()
+//                                $packages['installed']['rteeom/isoflags']->getReleaseDate()
+//
+////                            )
+//                        );
+//    
+//                        var_dump(count($latestPackages));exit;
+//                        exit;
                         
                         /** @var $package PackageInterface */
-                        $packageViewData['releaseDate'] = $package?->getReleaseDate()  || 1;
-                        $packageViewData['versionReleaseDate'] = $package?->getReleaseDate()?->format('d-M-Y') || 1;
-                        $packageViewData['latestReleaseDate'] = $latestPackages[$package->getName()]?->getReleaseDate()?->format('d-M-Y')  || 1;
+                        $packageViewData['releaseDate'] = $package->getReleaseDate()?->format('d-M-Y') ?? 'n/a';
+                        $packageViewData['versionReleaseDate'] = $package->getReleaseDate()?->format('d-M-Y') ?? 'n/a';
+                        $p = isset($latestPackages[$package->getName()]) ? $latestPackages[$package->getName()]->getReleaseDate()?->format('d-M-Y')  ?? 'n/a' : 'n/a'; 
+                        $packageViewData['latestReleaseDate'] = $p;
                     
-                        $packageViewData['url'] = 1 || $package->getDistUrl();
-                        $packageViewData['homepage'] = 1 || $package->getSourceUrl();
+                        $packageViewData['url'] = $package->getDistUrl() ?? 'n/a';
+                        $packageViewData['homepage'] = $package->getSourceUrl() ?? 'n/a';
                     
-                        $latestReleaseDate = 1 || $packageViewData['latestReleaseDate'];
-                        $versionReleaseDate = 1 || $packageViewData['versionReleaseDate'];
+                        $latestReleaseDate = $packageViewData['latestReleaseDate'] ?? 'n/a';
+                        $versionReleaseDate = $packageViewData['versionReleaseDate'] ?? 'n/a';
                     
                         $packageViewData['name'] = $package->getPrettyName();
                     
@@ -443,12 +444,12 @@ class Command extends BaseCommand
                         if ($writeVersion) {
                             $packageViewData['version'] = $package->getFullPrettyVersion();
                             $versionLength = max($versionLength, strlen($package->getFullPrettyVersion()));
-//                            $packageViewData['versionReleaseDate'] = $package->getReleaseDate()->format('d-M-Y');
+                            $packageViewData['versionReleaseDate'] = $package->getReleaseDate()?->format('d-M-Y') ?? 'n/a';
                         }
                         if ($writeLatest && $latestPackage) {
                             $packageViewData['latest'] = $latestPackage->getFullPrettyVersion();
                             $packageViewData['latest-status'] = $this->getUpdateStatus($latestPackage, $package);
-//                            $latestLength = max($latestLength, strlen($latestPackage->getFullPrettyVersion()));
+                            $latestLength = max($latestLength, strlen($latestPackage->getFullPrettyVersion()));
                         }
                     
                     
