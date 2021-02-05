@@ -434,6 +434,7 @@ class Command extends BaseCommand
 //                        var_dump(count($latestPackages));exit;
 //                        exit;
                         
+                        
                         /** @var $package PackageInterface */
                         $packageViewData['releaseDate'] = $package->getReleaseDate()?->format('d-M-Y') ?? 'n/a';
                         $packageViewData['versionReleaseDate'] = $package->getReleaseDate()?->format('d-M-Y') ?? 'n/a';
