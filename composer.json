@@ -1,5 +1,5 @@
 {
-    "name": "rteeom/composer-release-dates",
+    "name": "rteeom/crd",
     "description": "plug-in for composer to display release dates for package versions",
     "type": "composer-plugin",
     "license": "MIT",
